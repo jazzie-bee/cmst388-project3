@@ -1,0 +1,41 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+ 
+
+#Change the name to match your course name
+
+#Example name: Deploy HTML Files to AppService - COURSENAME
+
+name: Deploy HTML Files to AppService - CMST388
+
+on:
+
+  push:
+
+    branches:
+
+      - main
+
+jobs:
+
+  build-and-deploy:
+
+    runs-on: windows-latest
+
+    steps:
+
+    - uses: actions/checkout@main
+
+    - name: Deploy to Azure Web App
+
+      uses: azure/webapps-deploy@v1
+
+      with:
+
+        app-name: 'CMST388-UMGC-jwashington110'
+
+        slot-name: 'production'
+
+        publish-profile: ${{ secrets.AppServiceCMST388 }}
